@@ -71,19 +71,19 @@
 ```mermaid
 graph TD
     A([Начало]) --> B[/Ввести: X, A, B, C/]
-    B --> C[occupied = 0, failures = 0]
-    C --> D{occupied + A <= X}
-    D -- Да --> E[occupied = occupied + A]
-    D -- Нет --> F[failures = failures + 1]
-    E --> G{occupied + B <= X}
+    B --> C[ zapolnen = 0, cheloveki = 0]
+    C --> D{zapolnen + A <= X}
+    D -- Да --> E[zapolnen = zapolnen + A]
+    D -- Нет --> F[cheloveki = cheloveki + 1]
+    E --> G{zapolnen + B <= X}
     F --> G
-    G -- Да --> H[occupied = occupied + B]
-    G -- Нет --> I[failures = failures + 1]
-    H --> J{occupied + C <= X}
+    G -- Да --> H[zapolnen = zapolnen + B]
+    G -- Нет --> I[cheloveki = cheloveki + 1]
+    H --> J{zapolnen + C <= X}
     I --> J
-    J -- Да --> K[occupied = occupied + C]
-    J -- Нет --> L[failures = failures + 1]
-    K --> M[/Вывод: failures/]
+    J -- Да --> K[zapolnen = zapolnen + C]
+    J -- Нет --> L[cheloveki = cheloveki + 1]
+    K --> M[/Вывод: cheloveki/]
     L --> M
     M --> Z([Конец])
 
