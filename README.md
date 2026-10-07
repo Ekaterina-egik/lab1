@@ -70,18 +70,22 @@
 
 ```mermaid
 graph TD
-    A([Начало]) --> B[/Ввести: x, y/]
-    B --> C{x >= y}
-    C -- Нет --> D{y >= 0}
-    D -- Нет --> E[/Вывод: -y/]
-    D -- Да --> H[/Вывод: y/]
-    C -- Да --> I{x >= 0}
-    I -- Нет --> J[/Вывод: -x/]
-    I -- Да --> K[/Вывод: x/]
-    J --> Z
-    K --> Z
-    H --> Z
-    E --> Z([Конец])
+    A([Начало]) --> B[/Ввести: X, A, B, C/]
+    B --> C[occupied = 0, failures = 0]
+    C --> D{occupied + A <= X}
+    D -- Да --> E[occupied = occupied + A]
+    D -- Нет --> F[failures = failures + 1]
+    E --> G{occupied + B <= X}
+    F --> G
+    G -- Да --> H[occupied = occupied + B]
+    G -- Нет --> I[failures = failures + 1]
+    H --> J{occupied + C <= X}
+    I --> J
+    J -- Да --> K[occupied = occupied + C]
+    J -- Нет --> L[failures = failures + 1]
+    K --> M[/Вывод: failures/]
+    L --> M
+    M --> Z([Конец])
 
 ```
 
